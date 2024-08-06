@@ -6,24 +6,35 @@ import {
   Text,
   Flex,
   Center,
+  Container,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, AddIcon } from "@chakra-ui/icons";
 
+function NumberCard(props) {
+  return (
+    <Card maxW={"300px"} height={"300px"}>
+      <CardBody>
+        <Text>Insert d3 graphical representation of a number here.</Text>
+      </CardBody>
+    </Card>
+  );
+}
+
+function CardGridCell(props) {
+  return (
+    <Container bg="lightgray" centerContent>
+      {props.children}
+    </Container>
+  );
+}
+
 export default function CardGrid(props) {
   return (
-    <SimpleGrid columns={2} spacing={10}>
-      <Box bg="lightgray">
-        <Flex justifyContent={"center"}>
-          <Card maxW={"200px"}>
-            <CardBody>
-              <Text>
-                View a summary of all your customers over the last month.
-              </Text>
-            </CardBody>
-          </Card>
-        </Flex>
-      </Box>
-      <Box bg="lightgray"></Box>
+    <SimpleGrid columns={props.columns} spacing={10}>
+      <CardGridCell>
+        <NumberCard />
+      </CardGridCell>
+      <CardGridCell />
     </SimpleGrid>
   );
 }
