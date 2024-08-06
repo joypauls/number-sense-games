@@ -14,9 +14,11 @@ export default function App() {
     <ChakraProvider theme={theme}>
       <Navbar>
         <Container maxW="container.lg" my={8}>
-          <VStack divider={<StackDivider borderColor="gray.200" />} spacing={4}>
+          <VStack divider={<StackDivider borderColor="gray.200" />} spacing={6}>
             <CardGrid columns={2} />
             <CardGrid columns={3} />
+            <CardGrid columns={4} />
+            <CardGrid columns={5} />
           </VStack>
         </Container>
       </Navbar>
