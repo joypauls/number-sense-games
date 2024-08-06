@@ -1,50 +1,19 @@
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import {
   SimpleGrid,
   Card,
   CardBody,
-  Text,
   Container,
   CardHeader,
   Heading,
-  Flex,
-  Center,
+  Divider,
 } from "@chakra-ui/react";
-import * as d3 from "d3";
 
-const SquareStack = ({
-  size = 30,
-  color = "blue",
-  spacing = 5,
-  number = 5,
-}) => {
-  const svgRef = useRef(null);
+import SquareStack from "../d3/SquareStack";
 
-  useEffect(() => {
-    const svg = d3.select(svgRef.current);
-    svg.selectAll("*").remove();
+const Palette = ["blue", "orange", "green", "purple", "red"];
 
-    const data = Array.from({ length: number }, (_, i) => i);
-    const squares = svg.selectAll("rect").data(data);
-
-    const totalHeight = (size + spacing) * number;
-
-    squares
-      .enter()
-      .append("rect")
-      .attr("x", 0)
-      .attr("y", d => totalHeight - (d + 1) * (size + spacing))
-      .attr("width", size)
-      .attr("height", size)
-      .attr("fill", color);
-  }, [size, color, spacing, number]);
-
-  return (
-    <svg ref={svgRef} width={size} height={(size + spacing) * number}></svg>
-  );
-};
-
-function NumberCard(props) {
+function NumberCard({ number, color }) {
   const [borderColor, setBorderColor] = useState("gray.200");
   const handleClick = () => {
     setBorderColor(borderColor === "gray.200" ? "blue.300" : "gray.200");
@@ -60,8 +29,9 @@ function NumberCard(props) {
       cursor={"pointer"}
     >
       <CardHeader>
-        <Heading size="md">{props.number}</Heading>
+        <Heading size="md">{number}</Heading>
       </CardHeader>
+      <Divider borderBottomWidth={"1px"} />
       <CardBody
         display={"flex"}
         justifyContent={"center"}
@@ -69,23 +39,23 @@ function NumberCard(props) {
       >
         {/* <Text>Insert d3 graphical representation of a number here.</Text> */}
         {/* <Flex> */}
-        <SquareStack number={props.number} />
+        <SquareStack number={number} color={color} />
         {/* </Flex> */}
       </CardBody>
     </Card>
   );
 }
 
-function CardGridCell(props) {
-  return <Container centerContent>{props.children}</Container>;
+function CardGridCell({ children }) {
+  return <Container centerContent>{children}</Container>;
 }
 
-export default function CardGrid(props) {
+export default function CardGrid({ columns }) {
   return (
-    <SimpleGrid columns={props.columns} spacing={10}>
-      {Array.from({ length: props.columns }).map((_, i) => (
+    <SimpleGrid columns={columns} spacing={10}>
+      {Array.from({ length: columns }).map((_, i) => (
         <CardGridCell>
-          <NumberCard number={i + 1} />
+          <NumberCard number={i + 1} color={Palette[i]} />
         </CardGridCell>
       ))}
     </SimpleGrid>

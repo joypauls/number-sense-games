@@ -10,7 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
-const Links = ["Dashboard", "Projects", "Team"];
+const SiteTitle = "Number Sense";
+const Links = ["Activities", "About"];
 
 const NavLink = props => {
   const { children } = props;
@@ -46,7 +47,7 @@ export default function Navbar(props) {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box sx={{ fontWeight: "bold" }}>Logo</Box>
+            <Box sx={{ fontWeight: "bold" }}>{SiteTitle}</Box>
             <HStack
               as={"nav"}
               spacing={4}
