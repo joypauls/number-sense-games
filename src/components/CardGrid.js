@@ -31,10 +31,11 @@ function CardGridCell(props) {
 export default function CardGrid(props) {
   return (
     <SimpleGrid columns={props.columns} spacing={10}>
-      <CardGridCell>
-        <NumberCard />
-      </CardGridCell>
-      <CardGridCell />
+      {Array.from({ length: props.columns }).map((_, i) => (
+        <CardGridCell>
+          <NumberCard />
+        </CardGridCell>
+      ))}
     </SimpleGrid>
   );
 }
