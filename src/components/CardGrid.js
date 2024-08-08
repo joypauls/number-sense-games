@@ -11,19 +11,14 @@ import {
 
 import SquareStack from "../d3/SquareStack";
 
-function NumberCard({ number, color }) {
-  const [borderColor, setBorderColor] = useState("gray.200");
-  const handleClick = () => {
-    setBorderColor(borderColor === "gray.200" ? "blue.300" : "gray.200");
-  };
-
+function NumberCard({ number, color, handleCardClick, selected }) {
   return (
     <Card
       width={"200px"}
       height={"300px"}
-      borderColor={borderColor}
+      borderColor={selected ? "blue.300" : "gray.200"}
       borderWidth={"2px"}
-      onClick={handleClick}
+      onClick={() => handleCardClick(number)}
       cursor={"pointer"}
     >
       <CardHeader>
@@ -44,17 +39,23 @@ function NumberCard({ number, color }) {
   );
 }
 
-function CardGridCell({ children }) {
-  return <Container centerContent>{children}</Container>;
-}
-
-export default function CardGrid({ columns, cards }) {
+export default function CardGrid({
+  columns,
+  cards,
+  handleCardClick,
+  selectedCardNumber,
+}) {
   return (
     <SimpleGrid columns={columns} spacing={10}>
       {cards.map((c, _) => (
-        <CardGridCell>
-          <NumberCard number={c.number} color={c.color} />
-        </CardGridCell>
+        <NumberCard
+          key={c.number}
+          id={c.number}
+          number={c.number}
+          color={c.color}
+          handleCardClick={handleCardClick}
+          selected={selectedCardNumber === c.number}
+        />
       ))}
     </SimpleGrid>
   );
