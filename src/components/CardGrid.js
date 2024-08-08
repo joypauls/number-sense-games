@@ -11,8 +11,6 @@ import {
 
 import SquareStack from "../d3/SquareStack";
 
-const Palette = ["blue", "orange", "green", "purple", "red"];
-
 function NumberCard({ number, color }) {
   const [borderColor, setBorderColor] = useState("gray.200");
   const handleClick = () => {
