@@ -2,22 +2,25 @@ import React from "react";
 import {
   ChakraProvider,
   Container,
-  VStack,
+  Box,
   StackDivider,
+  Flex,
   theme,
 } from "@chakra-ui/react";
 import { Outlet, Link } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Root() {
   return (
     <div className="App">
       <ChakraProvider theme={theme}>
-        <Navbar>
-          <Container maxW="container.lg" my={8}>
-            <Outlet />
-            {/* <VStack
+        <Box minHeight="100vh" display="flex" flexDirection="column">
+          <Navbar>
+            <Container maxW="container.lg" my={8} flexGrow={1}>
+              <Outlet />
+              {/* <VStack
               divider={<StackDivider borderColor="gray.200" />}
               spacing={6}
             >
@@ -26,8 +29,10 @@ export default function Root() {
               <CardGrid columns={4} />
               <CardGrid columns={5} />
             </VStack> */}
-          </Container>
-        </Navbar>
+            </Container>
+          </Navbar>
+          <Footer />
+        </Box>
       </ChakraProvider>
     </div>
   );
