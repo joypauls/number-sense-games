@@ -65,11 +65,11 @@ export default function Navbar(props) {
               ))}
             </HStack>
           </HStack>
-          <Flex alignItems={"center"}>
+          {/* <Flex alignItems={"center"}>
             <Button variant={"solid"} colorScheme={"teal"} size={"sm"} mr={4}>
               Play
             </Button>
-          </Flex>
+          </Flex> */}
         </Flex>
 
         {isOpen ? (

@@ -50,12 +50,12 @@ function CardGridCell({ children }) {
   return <Container centerContent>{children}</Container>;
 }
 
-export default function CardGrid({ columns }) {
+export default function CardGrid({ columns, cards }) {
   return (
     <SimpleGrid columns={columns} spacing={10}>
-      {Array.from({ length: columns }).map((_, i) => (
+      {cards.map((c, _) => (
         <CardGridCell>
-          <NumberCard number={i + 1} color={Palette[i]} />
+          <NumberCard number={c.number} color={c.color} />
         </CardGridCell>
       ))}
     </SimpleGrid>
