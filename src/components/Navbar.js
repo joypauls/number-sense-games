@@ -7,13 +7,14 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
+  Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Outlet, Link } from "react-router-dom";
 
 const SiteTitle = "Number Sense";
-const LinkNames = ["Sandbox", "About"];
-const LinkPaths = ["/sandbox", "/about"];
+const LinkNames = ["Sandbox", "About", "Game Loop"];
+const LinkPaths = ["/sandbox", "/about", "game-loop"];
 
 const NavLink = props => {
   const { children, path } = props;
@@ -49,7 +50,9 @@ export default function Navbar(props) {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-            <Box sx={{ fontWeight: "bold" }}>{SiteTitle}</Box>
+            <Text sx={{ fontWeight: "bold" }} as={Link} to={"/"}>
+              {SiteTitle}
+            </Text>
             <HStack
               as={"nav"}
               spacing={4}

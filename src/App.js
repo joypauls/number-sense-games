@@ -3,7 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Root from "./routes/Root";
 import Sandbox from "./routes/Sandbox";
-import Index from "./routes/index";
+import Index from "./routes/Index";
+import GameLoop from "./routes/GameLoop";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "sandbox",
         element: <Sandbox />,
+      },
+      {
+        path: "game-loop",
+        element: <GameLoop />,
       },
     ],
   },
