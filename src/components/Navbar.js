@@ -9,15 +9,17 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { Outlet, Link } from "react-router-dom";
 
 const SiteTitle = "Number Sense";
-const Links = ["Activities", "About"];
+const LinkNames = ["Sandbox", "About"];
+const LinkPaths = ["/sandbox", "/about"];
 
 const NavLink = props => {
-  const { children } = props;
+  const { children, path } = props;
   return (
     <Box
-      as="a"
+      as={Link}
       px={2}
       py={1}
       rounded={"md"}
@@ -25,7 +27,7 @@ const NavLink = props => {
         textDecoration: "none",
         bg: useColorModeValue("gray.200", "gray.700"),
       }}
-      href={"#"}
+      to={path}
     >
       {children}
     </Box>
@@ -53,8 +55,10 @@ export default function Navbar(props) {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
+              {LinkNames.map((link, i) => (
+                <NavLink key={link} path={LinkPaths[i]}>
+                  {link}
+                </NavLink>
               ))}
             </HStack>
           </HStack>
@@ -68,8 +72,10 @@ export default function Navbar(props) {
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-              {Links.map(link => (
-                <NavLink key={link}>{link}</NavLink>
+              {LinkNames.map(link => (
+                <NavLink key={link} path={LinkPaths}>
+                  {link}
+                </NavLink>
               ))}
             </Stack>
           </Box>
