@@ -3,14 +3,13 @@ import {
   Flex,
   HStack,
   IconButton,
-  Button,
   useDisclosure,
   useColorModeValue,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { Outlet, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const SiteTitle = "Number Sense";
 const LinkNames = ["Sandbox", "About", "Game Loop"];

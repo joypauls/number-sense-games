@@ -1,9 +1,7 @@
-import { useState } from "react";
 import {
   SimpleGrid,
   Card,
   CardBody,
-  Container,
   CardHeader,
   Heading,
   Divider,
@@ -11,7 +9,7 @@ import {
 
 import SquareStack from "../d3/SquareStack";
 
-function NumberCard({ number, color, handleCardClick, selected }) {
+function NumberCard({ number, color, selected, handleCardClick }) {
   return (
     <Card
       width={"200px"}
@@ -42,19 +40,19 @@ function NumberCard({ number, color, handleCardClick, selected }) {
 export default function CardGrid({
   columns,
   cards,
-  handleCardClick,
   selectedCardNumber,
+  handleCardClick,
 }) {
   return (
-    <SimpleGrid columns={columns} spacing={10}>
+    <SimpleGrid columns={{ sm: 1, md: columns }} spacing={10}>
       {cards.map((c, _) => (
         <NumberCard
           key={c.number}
           id={c.number}
           number={c.number}
           color={c.color}
-          handleCardClick={handleCardClick}
           selected={selectedCardNumber === c.number}
+          handleCardClick={handleCardClick}
         />
       ))}
     </SimpleGrid>
