@@ -5,6 +5,7 @@ import Root from "./routes/Root";
 import Sandbox from "./routes/Sandbox";
 import Index from "./routes/Index";
 import GameLoop from "./routes/GameLoop";
+import Builder from "./routes/Builder";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "game-loop",
         element: <GameLoop />,
+      },
+      {
+        path: "builder",
+        element: <Builder />,
       },
     ],
   },

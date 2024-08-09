@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { ArrowForwardIcon, RepeatIcon } from "@chakra-ui/icons";
 
-import { PALETTE, MAX_NUMBER } from "../constants";
+import { PALETTE } from "../constants";
 import CardGrid from "../components/CardGrid";
 
 const COLUMNS = 3;

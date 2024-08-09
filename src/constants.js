@@ -1,4 +1,4 @@
 // eslint-disable-next-line
-const PALETTE = ["blue", "orange", "green", "purple", "red"];
+export const PALETTE = ["blue", "orange", "green", "purple", "red"];
 // eslint-disable-next-line
-const MAX_NUMBER = 5;
+export const MAX_NUMBER = 5;

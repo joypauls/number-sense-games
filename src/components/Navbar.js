@@ -12,8 +12,8 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 
 const SiteTitle = "Number Sense";
-const LinkNames = ["Sandbox", "About", "Game Loop"];
-const LinkPaths = ["/sandbox", "/about", "game-loop"];
+const LinkNames = ["Sandbox", "About", "Game Loop", "Builder"];
+const LinkPaths = ["/sandbox", "/about", "/game-loop", "/builder"];
 
 const NavLink = props => {
   const { children, path } = props;
